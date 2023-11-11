@@ -5,7 +5,6 @@ import { handleChange,clearFilters } from '../features/allJobs/allJobsSlice';
 import { useState , useMemo} from 'react';
 const SearchContainer = () => {
   const[localSearch, setLocalSearch] = useState("")
-
   const{isLoading, searchStatus, searchType, sort, sortOptions} = useSelector((store)=>store.allJobs)
   const {statusOptions, jobTypeOptions}= useSelector((store)=>store.job)
   const dispatch = useDispatch() 
@@ -33,7 +32,7 @@ const SearchContainer = () => {
     dispatch(clearFilters())
   }
 
-  const optimizedDebounce = useMemo(()=> debounce(),[])
+  const optimizedDebounce = useMemo(() => debounce(), []);
 
   return <Wrapper>
     <form className='form'>
